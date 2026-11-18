@@ -63,15 +63,22 @@ export function assetUrl(path,moduleId="h0d-visuels"){
 }
 export function mergeRegistry(bundled,overrides){
   const result={};
-  for(const source of [bundled,overrides]){
-    for(const [id,records] of Object.entries(source??{})){
-      if(!Array.isArray(records))continue;
-      const existing=new Map((result[id]||[]).map(v=>[v.id,v]));
-      for(const item of records){
-        try{const v=cleanVariant(item);existing.set(v.id,v);}catch{/* invalid entries ignored */}
-      }
-      result[id]=[...existing.values()];
+  const parseEntries=records=>{
+    const unique=new Map();
+    for(const item of records){
+      try{const v=cleanVariant(item);unique.set(v.id,v);}
+      catch{/* ignorer les entrées invalides */}
     }
+    return [...unique.values()];
+  };
+  // Le registre embarqué donne un point de départ.
+  for(const [id,records] of Object.entries(bundled??{})){
+    if(Array.isArray(records))result[id]=parseEntries(records);
+  }
+  // Un groupe enregistré par le MJ remplace explicitement le groupe
+  // embarqué, y compris lorsque le MJ l'a vidé.
+  for(const [id,records] of Object.entries(overrides??{})){
+    if(Array.isArray(records))result[id]=parseEntries(records);
   }
   return result;
 }
