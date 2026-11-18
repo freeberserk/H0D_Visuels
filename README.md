@@ -64,21 +64,69 @@ La mise à disposition publique d'illustrations doit respecter les droits d'util
 5. Une image absente ou invalide ne doit pas empêcher la génération du profil : le builder doit conserver son comportement de secours.
 6. Toute opération manuelle sur une fiche existante doit être déclenchée explicitement par le MJ.
 
-## Étapes de développement
+## Version 0.1.0 — Module Foundry VTT v14
 
-- [ ] Créer le manifeste `module.json` et l'entrée JavaScript du module Foundry v14.
-- [ ] Implémenter le registre de variantes et les cinq méthodes de l'API attendue.
-- [ ] Ajouter les réglages Foundry nécessaires aux annotations et aux choix MJ.
-- [ ] Créer l'interface de sélection et de validation des variantes.
-- [ ] Ajouter des tests JavaScript : absence de module, sélection aléatoire, sélection manuelle, mode équilibré et préservation des images existantes.
-- [ ] Préparer une archive de distribution et une release GitHub installable dans The Forge.
-- [ ] Tester H0D Visuels avec Faction Builder dans un monde **BAC-à-SABLES**.
-- [ ] Vérifier puis fusionner les raccordements des autres builders, un par un.
+Cette version fournit un moteur **fonctionnel sans images embarquées**. Elle peut être installée et activée même si aucune variante n'a encore été renseignée. L'absence de variantes n'empêche pas les builders de créer des profils avec leurs images de secours.
 
-## Installation
+### Installation depuis The Forge / Foundry
 
-**Pas encore disponible.** Une procédure d'installation avec lien direct vers le manifeste Foundry sera documentée après la première release testée.
+Après publication de la première release GitHub, ajouter le module par l'URL de manifeste :
+
+```text
+https://github.com/freeberserk/H0D_Visuels/releases/latest/download/module.json
+```
+
+Le zip `h0d-visuels.zip` et le manifeste `module.json` doivent tous deux être présents dans les **Assets** de la release. Le nom du dépôt GitHub est exactement **`H0D_Visuels`**, tandis que l'identifiant Foundry est **`h0d-visuels`**.
+
+### Gestion de la bibliothèque dans Foundry
+
+Après installation et activation du module dans un monde, créer une macro Foundry de type **Script** et utiliser :
+
+```js
+game.h0dVisuels.open();
+```
+
+La fenêtre permet de choisir la catégorie et la clé technique exacte du builder, puis d'ajouter des variantes. Les fichiers peuvent être référencés via des chemins Foundry existants ou des URL HTTPS d'assets The Forge. **Les images ne sont jamais téléversées par cette fenêtre** : elles doivent être déjà accessibles depuis le monde.
+
+Pour ouvrir directement les variantes d'un profil :
+
+```js
+game.h0dVisuels.manageVariants("faction", "CLE_TECHNIQUE_REELLE");
+```
+
+Pour sélectionner manuellement une variante d'une fiche Actor existante :
+
+```js
+game.h0dVisuels.openPicker(game.actors.get("ID_REEL_DE_L_ACTOR"));
+```
+
+Le MJ peut marquer une variante **approuvée** pour l'inclure dans les tirages automatiques. La présentation (masculine, féminine ou non renseignée) est saisie explicitement et ne découle jamais du nom de fichier. Les modes masculin/féminin retournent une variante uniquement si la catégorie demandée existe et a été approuvée.
+
+Le mode équilibré peut alterner les variantes annotées masculine/féminine quand les deux catégories existent ; à défaut, il tire dans le groupe de variantes approuvées. Aucun avatar, portrait ou token n'est fourni par défaut.
+
+### API du module
+
+L'API est disponible sous `game.h0dVisuels` et `game.modules.get("h0d-visuels").api`. Fonctions supplémentaires : `open()`, `addVariant(kind,key,record)`, `saveChoices(kind,key,records)`, `getStatus()`.
+
+Les opérations d'administration sont réservées au MJ. Les appels de sélection sont accessibles aux builders. **Aucune fiche n'est modifiée au démarrage** ; le sélecteur manuel n'agit que sur l'Actor choisi, sans changer les tokens déjà placés en scène.
+
+### Raccordements des builders
+
+- **Faction Builder** : intégration déjà présente et facultative.
+- **Creature Builder** : PR #6 en brouillon.
+- **Machine Builder** : PR #9 en brouillon.
+- **Equipment Builder** : PR #5 en brouillon.
+
+Ces trois PR seront testées puis publiées séparément après validation du module Visuels sur le monde BAC-à-SABLES.
+
+## Limites connues
+
+- Aucune image fournie dans le dépôt initial ; l'utilisateur doit fournir des chemins ou URL accessibles.
+- Les fichiers visuels présents dans `h0d-faction-builder/assets/conseil/` restent là où ils sont. Ils ne sont pas copiés automatiquement.
+- Le choix équilibré exploite les fiches déjà créées et un compteur de session ; aucun historique global des sélections non enregistrées n'est reconstitué.
+- Le nom d'une variante doit être identifié par une clé stable ; aucune correspondance automatique par simple nom de PNJ.
+- Les références d'images sont saisies par URL ou chemin ; le module n'intègre pas encore un téléverseur de fichiers.
 
 ---
 
-*Projet de module pour la campagne JDR Horizon Zero Dawn — système et outils Foundry VTT personnalisés.*
+*Module indépendant de la campagne JDR Horizon Zero Dawn.*
