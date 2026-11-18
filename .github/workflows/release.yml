@@ -1,0 +1,41 @@
+name: Validate and publish H0D Visuels
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate module and behavior
+        run: |
+          node --check scripts/h0d-visuels.js
+          node --check scripts/h0d-visual-core.mjs
+          npm test
+          python3 -m json.tool module.json >/dev/null
+          python3 -m json.tool data/visuals.json >/dev/null
+      - name: Build Foundry package
+        run: |
+          zip -r h0d-visuels.zip module.json scripts data README.md CHANGELOG.md
+          unzip -t h0d-visuels.zip
+      - name: Publish GitHub release
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION=$(node -p "require('./module.json').version")
+          TAG="v$VERSION"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release $TAG already exists; no overwrite."; exit 1;
+          fi
+          gh release create "$TAG" h0d-visuels.zip module.json \
+            --target "$GITHUB_SHA" \
+            --title "H0D Visuels $TAG" \
+            --notes-file CHANGELOG.md
