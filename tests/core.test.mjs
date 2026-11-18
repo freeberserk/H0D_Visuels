@@ -49,11 +49,13 @@ test("chemins Forge, module, systèmes, absolus, interdiction JS/data",()=>{
  assert.equal(assetUrl("data:image/webp;base64,evil"),null);
  assert.throws(()=>cleanVariant({id:"bad",portrait:"javascript:alert(1)"}),/dangereux/);
 });
-test("un registre MJ écrase seulement les variantes de même ID",()=>{
- const old={"faction::x":[make("a"),make("b")]};
+test("le groupe modifié par le MJ remplace entièrement le groupe embarqué",()=>{
+ const old={"faction::x":[make("a"),make("b")],"faction::y":[make("c")]};
  const updated={"faction::x":[{...make("a"),approved:false}]};
  const merged=mergeRegistry(old,updated);
- assert.equal(merged["faction::x"].length,2);
- assert.equal(merged["faction::x"].find(v=>v.id==="a").approved,false);
- assert.equal(merged["faction::x"].find(v=>v.id==="b").approved,true);
+ assert.equal(merged["faction::x"].length,1);
+ assert.equal(merged["faction::x"][0].approved,false);
+ assert.equal(merged["faction::y"].length,1);
+ const emptied=mergeRegistry(old,{"faction::x":[]});
+ assert.deepEqual(emptied["faction::x"],[]);
 });
