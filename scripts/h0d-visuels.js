@@ -250,10 +250,10 @@ function providerKeys(){
 async function open(){
   requireGM();
   const options=providerKeys();
-  const status=status();
+  const summary=status();
   const datalist=options.map(o=>'<option value="'+esc(o.key)+'" label="'+esc(o.kind+" — "+o.label)+'"></option>').join("");
   const content='<div class="h0d-visual-home">'+
-    '<p>'+status.groups+' groupes, '+status.variants+' variantes, '+status.approved+' approuvées.</p>'+
+    '<p>'+summary.groups+' groupes, '+summary.variants+' variantes, '+summary.approved+' approuvées.</p>'+
     '<label>Catégorie <select data-kind>'+CATEGORIES.map(x=>'<option value="'+x+'">'+x+'</option>').join("")+'</select></label>'+
     '<label>Clé technique du builder <input data-key list="h0d-keys" placeholder="ex. archetype-key"></label>'+
     '<datalist id="h0d-keys">'+datalist+'</datalist>'+
