@@ -1,8 +1,8 @@
 {
   "id": "h0d-visuels",
   "title": "H0D Visuels",
-  "description": "Bibliothèque visuelle facultative pour les builders Horizon Zero Dawn : portraits, tokens et annotations MJ.",
-  "version": "0.1.0",
+  "description": "Bibliothèque illustrée H0D pour les machines, la faune, les factions et l'équipement.",
+  "version": "0.2.0",
   "authors": [
     {
       "name": "JDR Zero Dawn"
@@ -17,5 +17,8 @@
   ],
   "url": "https://github.com/freeberserk/H0D_Visuels",
   "manifest": "https://github.com/freeberserk/H0D_Visuels/releases/latest/download/module.json",
-  "download": "https://github.com/freeberserk/H0D_Visuels/releases/latest/download/h0d-visuels.zip"
+  "download": "https://github.com/freeberserk/H0D_Visuels/releases/latest/download/h0d-visuels.zip",
+  "styles": [
+    "styles/h0d-visuels.css"
+  ]
 }
