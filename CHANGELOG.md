@@ -1,5 +1,12 @@
 # Journal des versions
 
+## 0.2.2 — Lot Machines validé
+
+- Illustration `wolverine-elysium.webp` associée à `glouton-elys` (Glouton ELYS).
+- Illustration `ravager.webp` associée à `ravager-young` (Ravageur jeune / affaibli).
+- Images ELYSIUM `dent-de-scie-elysium.webp` et `faucheur-elysium.webp` conservées dans le module, sans association : fiches spécifiques à créer ultérieurement dans Machine Builder.
+- Les 54 images restent incluses, aucune fiche Actor existante n'est modifiée ; la version des autres builders reste inchangée.
+
 ## 0.2.1 — Lot Faune validé
 
 - Nouvelles associations : Loup solitaire, Sanglier territorial, Cerf / herbivore rapide et Serpent venimeux.
