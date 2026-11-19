@@ -28,7 +28,7 @@ test("le module expose l'API attendue par Faction Builder sans retoucher les Act
  for(const m of ["getChoices","pickForBuilder","visualUrl","manageVariants","openPicker"])
   assert.equal(typeof api[m],"function",m);
  assert.equal(api.getStatus().ready,true);
- assert.equal(api.getStatus().variants,30);
+ assert.equal(api.getStatus().variants,36);
  assert.equal(api.getStatus().assets,54);
  assert.equal(api.getChoices("machine","watcher").length,1);
  assert.equal(api.visualUrl("assets/machines/watcher-small.webp"),"modules/h0d-visuels/assets/machines/watcher-small.webp");
