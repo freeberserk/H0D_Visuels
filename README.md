@@ -2,7 +2,7 @@
 
 **Bibliothèque visuelle commune pour les modules Foundry VTT de la campagne JDR Horizon Zero Dawn.**
 
-> **Version installable : 0.2.0.** Bibliothèque illustrée, 54 images WebP intégrées au module. Les images ont été importées dans `assets/` et font partie du ZIP Foundry.
+> **Version installable : 0.2.1.** Bibliothèque illustrée, 54 images WebP intégrées au module. Les images ont été importées dans `assets/` et font partie du ZIP Foundry.
 
 ## Version 0.2.0 — Galerie et images intégrées
 

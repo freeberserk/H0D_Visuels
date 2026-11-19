@@ -1,5 +1,12 @@
 # Journal des versions
 
+## 0.2.1 — Lot Faune validé
+
+- Nouvelles associations : Loup solitaire, Sanglier territorial, Cerf / herbivore rapide et Serpent venimeux.
+- Quatre variantes graphiques du profil générique Petit nuisible : fouine, lézard, renard et rat standard.
+- Les fichiers `chevre.webp` et `oiseau.webp` restent non associés, sans créer de profils supplémentaires.
+- Aucun changement des caractéristiques, des Actors existants ou des fichiers d'images.
+
 ## 0.2.0 — Galerie d’images intégrée
 
 - Interface galerie illustrée, recherche, catégories et association aux profils.

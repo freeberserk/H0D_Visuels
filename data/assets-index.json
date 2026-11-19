@@ -352,8 +352,10 @@
       "label": "fouines",
       "src": "assets/faune/fouines.webp",
       "sourceArchive": "faune locale(2).zip",
-      "suggestedKeys": [],
-      "status": "unassigned"
+      "suggestedKeys": [
+        "petit-nuisible"
+      ],
+      "status": "mapped"
     },
     {
       "id": "creature-images",
@@ -361,8 +363,10 @@
       "label": "images",
       "src": "assets/faune/images.webp",
       "sourceArchive": "faune locale(2).zip",
-      "suggestedKeys": [],
-      "status": "unassigned"
+      "suggestedKeys": [
+        "sanglier-territorial"
+      ],
+      "status": "mapped"
     },
     {
       "id": "creature-lezard",
@@ -370,8 +374,10 @@
       "label": "lezard",
       "src": "assets/faune/lezard.webp",
       "sourceArchive": "faune locale(2).zip",
-      "suggestedKeys": [],
-      "status": "unassigned"
+      "suggestedKeys": [
+        "petit-nuisible"
+      ],
+      "status": "mapped"
     },
     {
       "id": "creature-loup",
@@ -379,8 +385,10 @@
       "label": "loup",
       "src": "assets/faune/loup.webp",
       "sourceArchive": "faune locale(2).zip",
-      "suggestedKeys": [],
-      "status": "unassigned"
+      "suggestedKeys": [
+        "loup-solitaire"
+      ],
+      "status": "mapped"
     },
     {
       "id": "creature-oiseau",
@@ -408,8 +416,10 @@
       "label": "rat",
       "src": "assets/faune/rat.webp",
       "sourceArchive": "faune locale(2).zip",
-      "suggestedKeys": [],
-      "status": "unassigned"
+      "suggestedKeys": [
+        "petit-nuisible"
+      ],
+      "status": "mapped"
     },
     {
       "id": "creature-reindeer",
@@ -417,8 +427,10 @@
       "label": "reindeer",
       "src": "assets/faune/reindeer.webp",
       "sourceArchive": "faune locale(2).zip",
-      "suggestedKeys": [],
-      "status": "unassigned"
+      "suggestedKeys": [
+        "cerf-herbivore-rapide"
+      ],
+      "status": "mapped"
     },
     {
       "id": "creature-renard",
@@ -426,8 +438,10 @@
       "label": "renard",
       "src": "assets/faune/renard.webp",
       "sourceArchive": "faune locale(2).zip",
-      "suggestedKeys": [],
-      "status": "unassigned"
+      "suggestedKeys": [
+        "petit-nuisible"
+      ],
+      "status": "mapped"
     },
     {
       "id": "creature-serpent",
@@ -435,8 +449,10 @@
       "label": "serpent",
       "src": "assets/faune/serpent.webp",
       "sourceArchive": "faune locale(2).zip",
-      "suggestedKeys": [],
-      "status": "unassigned"
+      "suggestedKeys": [
+        "serpent-venimeux"
+      ],
+      "status": "mapped"
     },
     {
       "id": "component-grazer-corne",

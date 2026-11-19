@@ -401,6 +401,100 @@
           "approved": true
         }
       ]
+    },
+    {
+      "kind": "creature",
+      "key": "loup-solitaire",
+      "variants": [
+        {
+          "id": "assets-faune-loup",
+          "label": "Loup solitaire",
+          "portrait": "assets/faune/loup.webp",
+          "token": "",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "creature",
+      "key": "sanglier-territorial",
+      "variants": [
+        {
+          "id": "assets-faune-images",
+          "label": "Sanglier territorial",
+          "portrait": "assets/faune/images.webp",
+          "token": "",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "creature",
+      "key": "cerf-herbivore-rapide",
+      "variants": [
+        {
+          "id": "assets-faune-reindeer",
+          "label": "Cerf / herbivore rapide",
+          "portrait": "assets/faune/reindeer.webp",
+          "token": "",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "creature",
+      "key": "serpent-venimeux",
+      "variants": [
+        {
+          "id": "assets-faune-serpent",
+          "label": "Serpent venimeux",
+          "portrait": "assets/faune/serpent.webp",
+          "token": "",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "creature",
+      "key": "petit-nuisible",
+      "variants": [
+        {
+          "id": "assets-faune-fouines",
+          "label": "Fouines — Petit nuisible",
+          "portrait": "assets/faune/fouines.webp",
+          "token": "",
+          "presentation": "non_renseigne",
+          "approved": true
+        },
+        {
+          "id": "assets-faune-lezard",
+          "label": "Lézard — Petit nuisible",
+          "portrait": "assets/faune/lezard.webp",
+          "token": "",
+          "presentation": "non_renseigne",
+          "approved": true
+        },
+        {
+          "id": "assets-faune-renard",
+          "label": "Renard — Petit nuisible",
+          "portrait": "assets/faune/renard.webp",
+          "token": "",
+          "presentation": "non_renseigne",
+          "approved": true
+        },
+        {
+          "id": "assets-faune-rat",
+          "label": "Rat standard — Petit nuisible",
+          "portrait": "assets/faune/rat.webp",
+          "token": "",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
     }
   ]
 }
