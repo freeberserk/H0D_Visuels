@@ -2,7 +2,15 @@
 
 **Bibliothèque visuelle commune pour les modules Foundry VTT de la campagne JDR Horizon Zero Dawn.**
 
-> **Version installable : 0.2.1.** Bibliothèque illustrée, 54 images WebP intégrées au module. Les images ont été importées dans `assets/` et font partie du ZIP Foundry.
+> **Version installable : 0.2.2.** Bibliothèque illustrée, 54 images WebP intégrées au module. Les images ont été importées dans `assets/` et font partie du ZIP Foundry.
+
+## Lot Machines — 0.2.2
+
+- `wolverine-elysium.webp` → `glouton-elys` (Glouton ELYS).
+- `ravager.webp` → `ravager-young` (Ravageur jeune / affaibli).
+- `dent-de-scie-elysium.webp` et `faucheur-elysium.webp` restent disponibles dans la bibliothèque, sans association automatique, jusqu'à la création de leurs profils propres dans Machine Builder.
+- Les six images du dossier `assets/machines/elysium/` sont physiquement présentes dans le module.
+- Le statut `unassigned` ne supprime pas l'image : il indique uniquement l'absence de correspondance validée.
 
 ## Version 0.2.0 — Galerie et images intégrées
 

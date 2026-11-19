@@ -11,8 +11,8 @@ test("inventaire des archives et couverture des références",()=>{
  assert.equal(index.assets.filter(a=>a.category==="machine").length,29);
  assert.equal(index.assets.filter(a=>a.category==="creature").length,13);
  assert.equal(index.assets.filter(a=>a.category==="component").length,12);
- assert.equal(index.assets.filter(a=>a.status==="unassigned").length,18);
- assert.equal(visuals.entries.length,33);
+ assert.equal(index.assets.filter(a=>a.status==="unassigned").length,16);
+ assert.equal(visuals.entries.length,35);
 });
 test("les illustrations rattachées à des profils utilisent exclusivement des chemins présents dans l'index",()=>{
  const src=new Set(index.assets.map(a=>a.src));
@@ -72,4 +72,37 @@ test("associations de faune validées par le MJ, sans assimilation aux mutations
  assert.equal(visuals.entries.some(e=>e.kind==="creature"&&e.key==="rat-pale-contamine"),false);
  for(const name of ["oiseau.webp","chevre.webp"])
   assert.equal(index.assets.find(a=>a.src==="assets/faune/"+name).status,"unassigned");
+});
+
+test("lot Machines : les deux images approuvées pointent vers les bons profils",()=>{
+ const mappings=[
+  ["assets/machines/elysium/wolverine-elysium.webp","glouton-elys"],
+  ["assets/machines/ravager.webp","ravager-young"]
+ ];
+ for(const [src,key] of mappings){
+   const asset=index.assets.find(x=>x.src===src);
+   assert.ok(asset,src);
+   assert.equal(asset.status,"mapped");
+   assert.deepEqual(asset.suggestedKeys,[key]);
+   const profile=visuals.entries.find(x=>x.kind==="machine"&&x.key===key);
+   assert.ok(profile,key);
+   assert.equal(profile.variants.length,1);
+   assert.equal(profile.variants[0].portrait,src);
+   assert.equal(profile.variants[0].token,src);
+   assert.equal(profile.variants[0].approved,true);
+   assert.equal(profile.variants[0].presentation,"non_renseigne");
+ }
+ const existing=visuals.entries.find(x=>x.kind==="machine"&&x.key==="ravageur-sauvage");
+ assert.equal(existing.variants.length,1);
+ assert.equal(existing.variants[0].portrait,"assets/machines/ravager-sauvage.webp");
+});
+test("les deux machines ELYSIUM sans profil restent accessibles mais non associées",()=>{
+ for(const file of ["dent-de-scie-elysium.webp","faucheur-elysium.webp"]){
+   const src="assets/machines/elysium/"+file;
+   const asset=index.assets.find(x=>x.src===src);
+   assert.ok(asset,src);
+   assert.equal(asset.status,"unassigned");
+   assert.deepEqual(asset.suggestedKeys,[]);
+   assert.equal(visuals.entries.some(e=>e.kind==="machine"&&e.variants.some(v=>v.portrait===src||v.token===src)),false);
+ }
 });

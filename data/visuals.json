@@ -495,6 +495,34 @@
           "approved": true
         }
       ]
+    },
+    {
+      "kind": "machine",
+      "key": "glouton-elys",
+      "variants": [
+        {
+          "id": "assets-machines-elysium-wolverine",
+          "label": "Glouton ELYS — Wolverine ELYSIUM",
+          "portrait": "assets/machines/elysium/wolverine-elysium.webp",
+          "token": "assets/machines/elysium/wolverine-elysium.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "ravager-young",
+      "variants": [
+        {
+          "id": "assets-machines-ravager-young",
+          "label": "Ravageur jeune / affaibli",
+          "portrait": "assets/machines/ravager.webp",
+          "token": "assets/machines/ravager.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
     }
   ]
 }

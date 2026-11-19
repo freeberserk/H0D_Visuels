@@ -204,8 +204,10 @@
       "label": "wolverine elysium",
       "src": "assets/machines/elysium/wolverine-elysium.webp",
       "sourceArchive": "Machine.zip",
-      "suggestedKeys": [],
-      "status": "unassigned"
+      "suggestedKeys": [
+        "glouton-elys"
+      ],
+      "status": "mapped"
     },
     {
       "id": "machine-ravager-sauvage",
@@ -224,8 +226,10 @@
       "label": "ravager",
       "src": "assets/machines/ravager.webp",
       "sourceArchive": "Machine.zip",
-      "suggestedKeys": [],
-      "status": "unassigned"
+      "suggestedKeys": [
+        "ravager-young"
+      ],
+      "status": "mapped"
     },
     {
       "id": "machine-redeye-watcher-small",
