@@ -21,9 +21,18 @@ jobs:
           npm test
           python3 -m json.tool module.json >/dev/null
           python3 -m json.tool data/visuals.json >/dev/null
+          python3 -m json.tool data/assets-index.json >/dev/null
+          python3 - <<'PY'
+          import json, pathlib, sys
+          assets = json.loads(pathlib.Path('data/assets-index.json').read_text())['assets']
+          missing = [v['src'] for v in assets if not pathlib.Path(v['src']).is_file()]
+          if len(assets)!=54 or missing:
+              sys.exit(f"52+ images manquantes : {len(missing)} absent(s) / {len(assets)} déclaré(s). Publication bloquée.")
+          print("Images présentes :",len(assets))
+          PY
       - name: Build Foundry package
         run: |
-          zip -r h0d-visuels.zip module.json scripts data README.md CHANGELOG.md
+          zip -r h0d-visuels.zip module.json scripts styles data assets README.md CHANGELOG.md
           unzip -t h0d-visuels.zip
       - name: Publish GitHub release
         if: github.event_name != 'pull_request'
