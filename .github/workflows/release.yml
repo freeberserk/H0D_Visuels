@@ -3,7 +3,7 @@ on:
   pull_request:
     branches: [main]
   push:
-    branches: [main]
+    branches: [main, feature/gallery-020-images-pending]
   workflow_dispatch:
 
 permissions:
@@ -14,6 +14,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Extract the 54 uploaded WebP assets
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, zipfile, sys
+          archive = pathlib.Path("H0D_Visuels_54_images_uniquement.zip")
+          manifest = json.loads(pathlib.Path("data/assets-index.json").read_text())
+          expected = {entry["src"] for entry in manifest["assets"]}
+          if len(expected) != 54:
+              sys.exit(f"Le registre doit comporter 54 chemins uniques, trouvé {len(expected)}")
+          if archive.exists():
+              with zipfile.ZipFile(archive) as z:
+                  names = {info.filename for info in z.infolist() if not info.is_dir()}
+                  if names != expected:
+                      sys.exit(f"Fichiers incompatibles : absents {sorted(expected-names)}, supplémentaires {sorted(names-expected)}")
+                  for name in names:
+                      path = pathlib.PurePosixPath(name)
+                      if path.is_absolute() or ".." in path.parts or path.parts[0] != "assets":
+                          sys.exit("Chemin d'archive interdit : "+name)
+                  z.extractall(".")
+          missing = [str(x) for x in expected if not pathlib.Path(x).is_file()]
+          if missing:
+              sys.exit(f"{len(missing)} images introuvables : {missing[:5]}")
+          print(f"Images WebP contrôlées : {len(expected)}")
+          PY
+      - name: Commit extracted images to the preparation branch
+        if: github.event_name == 'push' && github.ref == 'refs/heads/feature/gallery-020-images-pending'
+        run: |
+          if [ -n "$(git status --porcelain -- assets/)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add assets/
+            git commit -m "assets(visuels): extraire les 54 images dans la bibliothèque du module"
+            git push origin HEAD:feature/gallery-020-images-pending
+          else
+            echo "Les images sont déjà dans le dépôt."
+          fi
       - name: Validate module and behavior
         run: |
           node --check scripts/h0d-visuels.js
@@ -35,7 +71,7 @@ jobs:
           zip -r h0d-visuels.zip module.json scripts styles data assets README.md CHANGELOG.md
           unzip -t h0d-visuels.zip
       - name: Publish GitHub release
-        if: github.event_name != 'pull_request'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
