@@ -90,7 +90,7 @@ async function addVariant(kind,key,record){
 function status(){
   const records=completeRegistry();
   return {
-    version:"0.2.0",ready:initialized,
+    version:"0.2.1",ready:initialized,
     assets:assets.length,
     groups:Object.keys(records).length,
     variants:Object.values(records).reduce((n,x)=>n+x.length,0),
@@ -397,5 +397,5 @@ Hooks.once("ready",async()=>{
     console.warn("H0D Visuels | registre embarqué indisponible, entrées MJ conservées",err);
   }
   initialized=true;
-  console.info("H0D Visuels | v0.2.0 prêt ; "+status().variants+" variante(s).");
+  console.info("H0D Visuels | v0.2.1 prêt ; "+status().variants+" variante(s).");
 });
