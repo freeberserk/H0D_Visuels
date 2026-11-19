@@ -379,8 +379,10 @@
       "label": "loup",
       "src": "assets/faune/loup.webp",
       "sourceArchive": "faune locale(2).zip",
-      "suggestedKeys": [],
-      "status": "unassigned"
+      "suggestedKeys": [
+        "loup-solitaire"
+      ],
+      "status": "mapped"
     },
     {
       "id": "creature-oiseau",
