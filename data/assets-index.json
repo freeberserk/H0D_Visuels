@@ -1,0 +1,550 @@
+{
+  "format": "H0D_VISUAL_ASSETS",
+  "formatVersion": 1,
+  "assets": [
+    {
+      "id": "machine-broadhead-small",
+      "category": "machine",
+      "label": "broadhead small",
+      "src": "assets/machines/broadhead-small.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "broadhead"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-burrower-wiki",
+      "category": "machine",
+      "label": "burrower wiki",
+      "src": "assets/machines/burrower-wiki.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "burrower-simple"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-charger-small",
+      "category": "machine",
+      "label": "charger small",
+      "src": "assets/machines/charger-small.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "charger-wild"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-clawstrider-wiki",
+      "category": "machine",
+      "label": "clawstrider wiki",
+      "src": "assets/machines/clawstrider-wiki.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "clawstrider-sauvage"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-dent-de-scie-d-aloy",
+      "category": "machine",
+      "label": "dent de scie d aloy",
+      "src": "assets/machines/dent-de-scie-d-aloy.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "sawtooth-aloy"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-fanghorn",
+      "category": "machine",
+      "label": "fanghorn",
+      "src": "assets/machines/fanghorn.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "fanghorn-sauvage"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-fire-bellowback-small",
+      "category": "machine",
+      "label": "fire bellowback small",
+      "src": "assets/machines/fire-bellowback-small.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "bellowback-fire",
+        "bellowback-feu"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-freezebellowback-render",
+      "category": "machine",
+      "label": "freezebellowback render",
+      "src": "assets/machines/freezebellowback-render.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "bellowback-ice",
+        "bellowback-gel"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-grazer-small",
+      "category": "machine",
+      "label": "grazer small",
+      "src": "assets/machines/grazer-small.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "grazer-rite"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-grazzer-sauvage",
+      "category": "machine",
+      "label": "grazzer sauvage",
+      "src": "assets/machines/grazzer-sauvage.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "grazer-sauvage"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-lancehorn-render",
+      "category": "machine",
+      "label": "lancehorn render",
+      "src": "assets/machines/lancehorn-render.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "lancehorn"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-lancehorn-small",
+      "category": "machine",
+      "label": "lancehorn small",
+      "src": "assets/machines/lancehorn-small.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "lancehorn"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-longleg-small",
+      "category": "machine",
+      "label": "longleg small",
+      "src": "assets/machines/longleg-small.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "longleg"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-elysium-dent-de-scie-elysium",
+      "category": "machine",
+      "label": "dent de scie elysium",
+      "src": "assets/machines/elysium/dent-de-scie-elysium.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "machine-elysium-faucheur-elysium",
+      "category": "machine",
+      "label": "faucheur elysium",
+      "src": "assets/machines/elysium/faucheur-elysium.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "machine-elysium-moissonneur-elysium",
+      "category": "machine",
+      "label": "moissonneur elysium",
+      "src": "assets/machines/elysium/moissonneur-elysium.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "moissonneur-elys9"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-elysium-recolteur-elysium",
+      "category": "machine",
+      "label": "recolteur elysium",
+      "src": "assets/machines/elysium/recolteur-elysium.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "recolteur-elys"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-elysium-tisseur-elysium",
+      "category": "machine",
+      "label": "tisseur elysium",
+      "src": "assets/machines/elysium/tisseur-elysium.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "tisseur-elys9"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-elysium-wolverine-elysium",
+      "category": "machine",
+      "label": "wolverine elysium",
+      "src": "assets/machines/elysium/wolverine-elysium.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "machine-ravager-sauvage",
+      "category": "machine",
+      "label": "ravager sauvage",
+      "src": "assets/machines/ravager-sauvage.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "ravageur-sauvage"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-ravager",
+      "category": "machine",
+      "label": "ravager",
+      "src": "assets/machines/ravager.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "machine-redeye-watcher-small",
+      "category": "machine",
+      "label": "redeye watcher small",
+      "src": "assets/machines/redeye-watcher-small.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "redeye-watcher"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-sawtooth-small",
+      "category": "machine",
+      "label": "sawtooth small",
+      "src": "assets/machines/sawtooth-small.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "sawtooth-wild"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-scrapper-small",
+      "category": "machine",
+      "label": "scrapper small",
+      "src": "assets/machines/scrapper-small.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "scrapper-standard"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-scrapper-abime-small",
+      "category": "machine",
+      "label": "scrapper abime small",
+      "src": "assets/machines/scrapper-abime-small.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "scrapper-blesse"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-scrounger",
+      "category": "machine",
+      "label": "scrounger",
+      "src": "assets/machines/scrounger.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "scrounger"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-shellwalker",
+      "category": "machine",
+      "label": "shellwalker",
+      "src": "assets/machines/shellwalker.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "shell-walker"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-strider-small",
+      "category": "machine",
+      "label": "strider small",
+      "src": "assets/machines/strider-small.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "strider-standard"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "machine-watcher-small",
+      "category": "machine",
+      "label": "watcher small",
+      "src": "assets/machines/watcher-small.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [
+        "watcher"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "creature-chien-sauvage",
+      "category": "creature",
+      "label": "chien sauvage",
+      "src": "assets/faune/chien-sauvage.webp",
+      "sourceArchive": "faune locale(2).zip",
+      "suggestedKeys": [
+        "chien-sauvage"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "creature-chien-sauvage-token",
+      "category": "creature",
+      "label": "chien sauvage token",
+      "src": "assets/faune/chien-sauvage-token.webp",
+      "sourceArchive": "faune locale(2).zip",
+      "suggestedKeys": [
+        "chien-sauvage"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "creature-chevre",
+      "category": "creature",
+      "label": "chevre",
+      "src": "assets/faune/chevre.webp",
+      "sourceArchive": "faune locale(2).zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "creature-fouines",
+      "category": "creature",
+      "label": "fouines",
+      "src": "assets/faune/fouines.webp",
+      "sourceArchive": "faune locale(2).zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "creature-images",
+      "category": "creature",
+      "label": "images",
+      "src": "assets/faune/images.webp",
+      "sourceArchive": "faune locale(2).zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "creature-lezard",
+      "category": "creature",
+      "label": "lezard",
+      "src": "assets/faune/lezard.webp",
+      "sourceArchive": "faune locale(2).zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "creature-loup",
+      "category": "creature",
+      "label": "loup",
+      "src": "assets/faune/loup.webp",
+      "sourceArchive": "faune locale(2).zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "creature-oiseau",
+      "category": "creature",
+      "label": "oiseau",
+      "src": "assets/faune/oiseau.webp",
+      "sourceArchive": "faune locale(2).zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "creature-ours",
+      "category": "creature",
+      "label": "ours",
+      "src": "assets/faune/ours.webp",
+      "sourceArchive": "faune locale(2).zip",
+      "suggestedKeys": [
+        "ours-brun"
+      ],
+      "status": "mapped"
+    },
+    {
+      "id": "creature-rat",
+      "category": "creature",
+      "label": "rat",
+      "src": "assets/faune/rat.webp",
+      "sourceArchive": "faune locale(2).zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "creature-reindeer",
+      "category": "creature",
+      "label": "reindeer",
+      "src": "assets/faune/reindeer.webp",
+      "sourceArchive": "faune locale(2).zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "creature-renard",
+      "category": "creature",
+      "label": "renard",
+      "src": "assets/faune/renard.webp",
+      "sourceArchive": "faune locale(2).zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "creature-serpent",
+      "category": "creature",
+      "label": "serpent",
+      "src": "assets/faune/serpent.webp",
+      "sourceArchive": "faune locale(2).zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "component-grazer-corne",
+      "category": "component",
+      "label": "grazer corne",
+      "src": "assets/components/grazer-corne.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "component-grazzer-chassis",
+      "category": "component",
+      "label": "grazzer chassis",
+      "src": "assets/components/grazzer-chassis.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "component-sawtooth-griffes",
+      "category": "component",
+      "label": "sawtooth griffes",
+      "src": "assets/components/sawtooth-griffes.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "component-scrapper-chassis",
+      "category": "component",
+      "label": "scrapper chassis",
+      "src": "assets/components/scrapper-chassis.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "component-scrapper-machoire",
+      "category": "component",
+      "label": "scrapper machoire",
+      "src": "assets/components/scrapper-machoire.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "component-scrapper-griffes",
+      "category": "component",
+      "label": "scrapper griffes",
+      "src": "assets/components/scrapper-griffes.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "component-batterie-arriere",
+      "category": "component",
+      "label": "batterie arriere",
+      "src": "assets/components/batterie-arriere.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "component-blindage-lateral",
+      "category": "component",
+      "label": "blindage lateral",
+      "src": "assets/components/blindage-lateral.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "component-bonbonne",
+      "category": "component",
+      "label": "bonbonne",
+      "src": "assets/components/bonbonne.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "component-capteur-dorsal",
+      "category": "component",
+      "label": "capteur dorsal",
+      "src": "assets/components/capteur-dorsal.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "component-oeil-optique",
+      "category": "component",
+      "label": "oeil optique",
+      "src": "assets/components/oeil-optique.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    },
+    {
+      "id": "component-queue-stabilisatrice",
+      "category": "component",
+      "label": "queue stabilisatrice",
+      "src": "assets/components/queue-stabilisatrice.webp",
+      "sourceArchive": "Machine.zip",
+      "suggestedKeys": [],
+      "status": "unassigned"
+    }
+  ]
+}
