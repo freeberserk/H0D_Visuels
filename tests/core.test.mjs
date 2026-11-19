@@ -42,7 +42,7 @@ test("chemins Forge, module, systèmes, absolus, interdiction JS/data",()=>{
  assert.equal(assetUrl("https://assets.forge-vtt.com/test.webp"),"https://assets.forge-vtt.com/test.webp");
  assert.equal(assetUrl("modules/h0d-faction-builder/assets/conseil/tokens/tarek.webp"),
   "modules/h0d-faction-builder/assets/conseil/tokens/tarek.webp");
- assert.equal(assetUrl("assets/portrait.webp"),"assets/portrait.webp");
+ assert.equal(assetUrl("assets/portrait.webp"),"modules/h0d-visuels/assets/portrait.webp");
  assert.equal(assetUrl("assets/prive.webp".replace("assets/","./data/")),
   "modules/h0d-visuels/data/prive.webp");
  assert.equal(assetUrl("javascript:alert(1)"),null);

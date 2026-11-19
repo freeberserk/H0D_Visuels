@@ -1,5 +1,11 @@
 # Journal des versions
 
+## 0.2.0 — Galerie d’images intégrée
+
+- Interface galerie illustrée, recherche, catégories et association aux profils.
+- 54 fichiers WebP inclus dans le module : 29 machines, 13 faune, 12 composants, 28 profils initialement associés, 26 images à classer.
+- Le workflow empêche toute publication si les images attendues sont absentes.
+
 ## 0.1.0 — Premier module installable (Foundry VTT v14)
 
 - Bibliothèque commune pour Faction, Creature, Machine et Equipment Builders.

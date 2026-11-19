@@ -2,7 +2,19 @@
 
 **Bibliothèque visuelle commune pour les modules Foundry VTT de la campagne JDR Horizon Zero Dawn.**
 
-> **Statut : en développement.** Ce dépôt est destiné à accueillir le module `h0d-visuels`. Le README décrit la cible fonctionnelle et les interfaces attendues ; il ne signifie pas que le module est déjà opérationnel ou publié.
+> **Version installable : 0.2.0.** Bibliothèque illustrée, 54 images WebP intégrées au module. Les images ont été importées dans `assets/` et font partie du ZIP Foundry.
+
+## Version 0.2.0 — Galerie et images intégrées
+
+- Nouvelle interface : catégories Machines / Faune / Factions / Équipement, recherche des profils par nom, affichage des clés techniques secondaires, filtrage, vignettes et bouton d'association directe.
+- Index de 54 images issues de `Machine.zip` et `faune locale(2).zip` : **29 machines, 13 faune, 12 composants**.
+- **28 profils documentés** possèdent une association initiale ; les images non identifiées restent `unassigned` et ne sont jamais attribuées automatiquement.
+- Les images de Chien sauvage incluent portrait et token séparés.
+- Les chemins `assets/` du catalogue sont relatifs au module `h0d-visuels`, mais les liens `modules/…` et HTTPS de The Forge restent utilisables.
+- Les variantes éventuellement enregistrées par le MJ dans un monde restent prioritaires sur celles du registre embarqué : aucune migration automatique.
+- **Contrôle de sécurité de la CI** : les tests et la publication échouent si une des 54 images référencées est absente du dépôt.
+- Les 54 images sont stockées dans les trois dossiers `assets/machines/`, `assets/faune/` et `assets/components/`, et incluses dans les releases Foundry.
+- Aucun droit de redistribution des illustrations provenant de sources tierces n'a été vérifié. Le dépôt est public ; évaluer les droits avant d'y ajouter des fichiers.
 
 ## Objectif
 
@@ -64,7 +76,7 @@ La mise à disposition publique d'illustrations doit respecter les droits d'util
 5. Une image absente ou invalide ne doit pas empêcher la génération du profil : le builder doit conserver son comportement de secours.
 6. Toute opération manuelle sur une fiche existante doit être déclenchée explicitement par le MJ.
 
-## Version 0.1.0 — Module Foundry VTT v14
+## Version 0.1.0 — Première version du moteur
 
 Cette version fournit un moteur **fonctionnel sans images embarquées**. Elle peut être installée et activée même si aucune variante n'a encore été renseignée. L'absence de variantes n'empêche pas les builders de créer des profils avec leurs images de secours.
 

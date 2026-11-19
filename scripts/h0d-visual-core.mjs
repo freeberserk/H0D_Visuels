@@ -58,7 +58,7 @@ export function selectVariant(list,{mode="random",variantId=null,counts={},lastI
 export function assetUrl(path,moduleId="h0d-visuels"){
   const p=String(path??"").trim();
   if(!p||/^(?:javascript|data|file):/i.test(p)||/[\u0000-\u001f<>]/.test(p))return null;
-  if(/^(?:https?:\/\/|\/|modules\/|worlds\/|systems\/|icons\/|assets\/)/i.test(p))return p;
+  if(/^(?:https?:\/\/|\/|modules\/|worlds\/|systems\/|icons\/)/i.test(p))return p;
   return "modules/"+moduleId+"/"+p.replace(/^(?:\.\/)+/,"");
 }
 export function mergeRegistry(bundled,overrides){

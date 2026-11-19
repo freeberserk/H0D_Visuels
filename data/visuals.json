@@ -1,5 +1,406 @@
 {
   "format": "H0D_VISUAL_REGISTRY",
   "formatVersion": 1,
-  "entries": []
+  "entries": [
+    {
+      "kind": "machine",
+      "key": "broadhead",
+      "variants": [
+        {
+          "id": "assets-machines-broadhead-small",
+          "label": "broadhead small",
+          "portrait": "assets/machines/broadhead-small.webp",
+          "token": "assets/machines/broadhead-small.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "burrower-simple",
+      "variants": [
+        {
+          "id": "assets-machines-burrower-wiki",
+          "label": "burrower wiki",
+          "portrait": "assets/machines/burrower-wiki.webp",
+          "token": "assets/machines/burrower-wiki.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "charger-wild",
+      "variants": [
+        {
+          "id": "assets-machines-charger-small",
+          "label": "charger small",
+          "portrait": "assets/machines/charger-small.webp",
+          "token": "assets/machines/charger-small.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "clawstrider-sauvage",
+      "variants": [
+        {
+          "id": "assets-machines-clawstrider-wiki",
+          "label": "clawstrider wiki",
+          "portrait": "assets/machines/clawstrider-wiki.webp",
+          "token": "assets/machines/clawstrider-wiki.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "sawtooth-aloy",
+      "variants": [
+        {
+          "id": "assets-machines-dent-de-scie-d-aloy",
+          "label": "dent de scie d aloy",
+          "portrait": "assets/machines/dent-de-scie-d-aloy.webp",
+          "token": "assets/machines/dent-de-scie-d-aloy.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "fanghorn-sauvage",
+      "variants": [
+        {
+          "id": "assets-machines-fanghorn",
+          "label": "fanghorn",
+          "portrait": "assets/machines/fanghorn.webp",
+          "token": "assets/machines/fanghorn.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "bellowback-fire",
+      "variants": [
+        {
+          "id": "assets-machines-fire-bellowback-small",
+          "label": "fire bellowback small",
+          "portrait": "assets/machines/fire-bellowback-small.webp",
+          "token": "assets/machines/fire-bellowback-small.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "bellowback-feu",
+      "variants": [
+        {
+          "id": "assets-machines-fire-bellowback-small",
+          "label": "fire bellowback small",
+          "portrait": "assets/machines/fire-bellowback-small.webp",
+          "token": "assets/machines/fire-bellowback-small.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "bellowback-ice",
+      "variants": [
+        {
+          "id": "assets-machines-freezebellowback-render",
+          "label": "freezebellowback render",
+          "portrait": "assets/machines/freezebellowback-render.webp",
+          "token": "assets/machines/freezebellowback-render.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "bellowback-gel",
+      "variants": [
+        {
+          "id": "assets-machines-freezebellowback-render",
+          "label": "freezebellowback render",
+          "portrait": "assets/machines/freezebellowback-render.webp",
+          "token": "assets/machines/freezebellowback-render.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "grazer-rite",
+      "variants": [
+        {
+          "id": "assets-machines-grazer-small",
+          "label": "grazer small",
+          "portrait": "assets/machines/grazer-small.webp",
+          "token": "assets/machines/grazer-small.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "grazer-sauvage",
+      "variants": [
+        {
+          "id": "assets-machines-grazzer-sauvage",
+          "label": "grazzer sauvage",
+          "portrait": "assets/machines/grazzer-sauvage.webp",
+          "token": "assets/machines/grazzer-sauvage.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "lancehorn",
+      "variants": [
+        {
+          "id": "assets-machines-lancehorn-render",
+          "label": "lancehorn render",
+          "portrait": "assets/machines/lancehorn-render.webp",
+          "token": "assets/machines/lancehorn-render.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        },
+        {
+          "id": "assets-machines-lancehorn-small",
+          "label": "lancehorn small",
+          "portrait": "assets/machines/lancehorn-small.webp",
+          "token": "assets/machines/lancehorn-small.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "longleg",
+      "variants": [
+        {
+          "id": "assets-machines-longleg-small",
+          "label": "longleg small",
+          "portrait": "assets/machines/longleg-small.webp",
+          "token": "assets/machines/longleg-small.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "moissonneur-elys9",
+      "variants": [
+        {
+          "id": "assets-machines-elysium-moissonneur-elysium",
+          "label": "moissonneur elysium",
+          "portrait": "assets/machines/elysium/moissonneur-elysium.webp",
+          "token": "assets/machines/elysium/moissonneur-elysium.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "recolteur-elys",
+      "variants": [
+        {
+          "id": "assets-machines-elysium-recolteur-elysium",
+          "label": "recolteur elysium",
+          "portrait": "assets/machines/elysium/recolteur-elysium.webp",
+          "token": "assets/machines/elysium/recolteur-elysium.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "tisseur-elys9",
+      "variants": [
+        {
+          "id": "assets-machines-elysium-tisseur-elysium",
+          "label": "tisseur elysium",
+          "portrait": "assets/machines/elysium/tisseur-elysium.webp",
+          "token": "assets/machines/elysium/tisseur-elysium.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "ravageur-sauvage",
+      "variants": [
+        {
+          "id": "assets-machines-ravager-sauvage",
+          "label": "ravager sauvage",
+          "portrait": "assets/machines/ravager-sauvage.webp",
+          "token": "assets/machines/ravager-sauvage.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "redeye-watcher",
+      "variants": [
+        {
+          "id": "assets-machines-redeye-watcher-small",
+          "label": "redeye watcher small",
+          "portrait": "assets/machines/redeye-watcher-small.webp",
+          "token": "assets/machines/redeye-watcher-small.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "sawtooth-wild",
+      "variants": [
+        {
+          "id": "assets-machines-sawtooth-small",
+          "label": "sawtooth small",
+          "portrait": "assets/machines/sawtooth-small.webp",
+          "token": "assets/machines/sawtooth-small.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "scrapper-standard",
+      "variants": [
+        {
+          "id": "assets-machines-scrapper-small",
+          "label": "scrapper small",
+          "portrait": "assets/machines/scrapper-small.webp",
+          "token": "assets/machines/scrapper-small.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "scrapper-blesse",
+      "variants": [
+        {
+          "id": "assets-machines-scrapper-abime-small",
+          "label": "scrapper abime small",
+          "portrait": "assets/machines/scrapper-abime-small.webp",
+          "token": "assets/machines/scrapper-abime-small.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "scrounger",
+      "variants": [
+        {
+          "id": "assets-machines-scrounger",
+          "label": "scrounger",
+          "portrait": "assets/machines/scrounger.webp",
+          "token": "assets/machines/scrounger.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "shell-walker",
+      "variants": [
+        {
+          "id": "assets-machines-shellwalker",
+          "label": "shellwalker",
+          "portrait": "assets/machines/shellwalker.webp",
+          "token": "assets/machines/shellwalker.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "strider-standard",
+      "variants": [
+        {
+          "id": "assets-machines-strider-small",
+          "label": "strider small",
+          "portrait": "assets/machines/strider-small.webp",
+          "token": "assets/machines/strider-small.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "machine",
+      "key": "watcher",
+      "variants": [
+        {
+          "id": "assets-machines-watcher-small",
+          "label": "watcher small",
+          "portrait": "assets/machines/watcher-small.webp",
+          "token": "assets/machines/watcher-small.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "creature",
+      "key": "chien-sauvage",
+      "variants": [
+        {
+          "id": "assets-faune-chien-sauvage",
+          "label": "chien sauvage",
+          "portrait": "assets/faune/chien-sauvage.webp",
+          "token": "assets/faune/chien-sauvage-token.webp",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    },
+    {
+      "kind": "creature",
+      "key": "ours-brun",
+      "variants": [
+        {
+          "id": "assets-faune-ours",
+          "label": "ours",
+          "portrait": "assets/faune/ours.webp",
+          "token": "",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
+    }
+  ]
 }
