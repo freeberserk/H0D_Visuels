@@ -2,6 +2,8 @@ import {CATEGORIES,PRESENTATIONS,groupId,cleanVariant,selectVariant,assetUrl,mer
 
 const MODULE_ID="h0d-visuels";
 const DEFAULT_PATH="modules/h0d-visuels/data/visuals.json";
+const ASSETS_PATH="modules/h0d-visuels/data/assets-index.json";
+let assets=[];
 let bundled={};
 let initialized=false;
 const lastByGroup=new Map();
@@ -88,7 +90,8 @@ async function addVariant(kind,key,record){
 function status(){
   const records=completeRegistry();
   return {
-    version:"0.1.0",ready:initialized,
+    version:"0.2.0",ready:initialized,
+    assets:assets.length,
     groups:Object.keys(records).length,
     variants:Object.values(records).reduce((n,x)=>n+x.length,0),
     approved:Object.values(records).reduce((n,x)=>n+x.filter(v=>v.approved).length,0)
@@ -227,56 +230,140 @@ async function openPicker(actor){
   });
 }
 function providerKeys(){
-  const map={
+  const sources={
     faction:game.h0dFactionBuilder?.archetypes,
     creature:game.h0dCreatureBuilder?.creatures,
     machine:game.h0dMachineBuilder?.machines
   };
-  const entries=[];
-  for(const [kind,provider] of Object.entries(map)){
-    if(provider instanceof Map){
-      for(const [key,d] of provider)entries.push({kind,key,label:d.label??d.name??key});
-    }else if(provider&&typeof provider==="object"){
-      for(const [key,d] of Object.entries(provider))entries.push({kind,key,label:d?.label??d?.name??key});
-    }
+  const found=new Map();
+  for(const [kind,provider] of Object.entries(sources)){
+    if(!provider)continue;
+    const entries=provider instanceof Map?[...provider]:Object.entries(provider);
+    for(const [key,def] of entries)found.set(kind+"::"+key,{
+      kind,key,label:def?.label||def?.name||key
+    });
   }
-  const catalogue=game.h0dCatalogue;
-  if(catalogue?.getDefinitions){
-    try{for(const d of catalogue.getDefinitions())entries.push({kind:"equipment",key:d.key,label:d.name??d.key});}
-    catch{/* catalogue not ready */}
+  try {
+    for(const def of game.h0dCatalogue?.getDefinitions?.()||[])
+      found.set("equipment::"+def.key,{kind:"equipment",key:def.key,label:def.name||def.key});
+  }catch{}
+  for(const id of Object.keys(completeRegistry())){
+    const n=id.indexOf("::");if(n<0)continue;
+    const kind=id.slice(0,n),key=id.slice(n+2);
+    if(CATEGORIES.includes(kind)&&!found.has(id))found.set(id,{kind,key,label:key});
   }
-  return entries;
+  return [...found.values()].sort((a,b)=>a.label.localeCompare(b.label,"fr"));
 }
-async function open(){
-  requireGM();
-  const options=providerKeys();
-  const summary=status();
-  const datalist=options.map(o=>'<option value="'+esc(o.key)+'" label="'+esc(o.kind+" — "+o.label)+'"></option>').join("");
-  const content='<div class="h0d-visual-home">'+
-    '<p>'+summary.groups+' groupes, '+summary.variants+' variantes, '+summary.approved+' approuvées.</p>'+
-    '<label>Catégorie <select data-kind>'+CATEGORIES.map(x=>'<option value="'+x+'">'+x+'</option>').join("")+'</select></label>'+
-    '<label>Clé technique du builder <input data-key list="h0d-keys" placeholder="ex. archetype-key"></label>'+
-    '<datalist id="h0d-keys">'+datalist+'</datalist>'+
-    '<p>Les clés disponibles dépendent des builders installés. Une variante peut utiliser un chemin vers un fichier sur The Forge.</p>'+
-    '<button type="button" data-action="edit">Gérer les variantes de cette référence</button>'+
-    '<p data-h0d-status role="status"></p></div>';
-  return dialogClass().wait({
-    window:{title:"H0D Visuels — Bibliothèque",resizable:true},
-    content,buttons:[{action:"close",label:"Fermer"}],rejectClose:false,
-    render:(_event,dialog)=>{
-      const root=dialog.element?.querySelector(".h0d-visual-home");
-      if(!root||root.dataset.ready==="1")return;root.dataset.ready="1";
-      root.querySelector('[data-action="edit"]')?.addEventListener("click",async()=>{
-        const kind=root.querySelector("[data-kind]").value,key=root.querySelector("[data-key]").value.trim();
-        try{await manageVariants(kind,key);}
-        catch(err){const feedback=root.querySelector("[data-h0d-status]");feedback.textContent=String(err?.message??err);}
+
+function visualGalleryCard(entry,isAsset=false){
+ const src=isAsset?entry.src:entry.portrait||entry.token;
+ const title=entry.label||entry.id;
+ const subtitle=isAsset?(entry.status==="mapped"?"Correspondance connue":"À classer"):(entry.approved?"Approuvée":"À approuver");
+ const url=src?visualUrl(src):null;
+ return '<article class="h0dv-card"><div class="h0dv-illustration">'+
+  (url?'<img loading="lazy" src="'+esc(url)+'" alt="'+esc(title)+'">':'<span class="h0dv-no-image">Aucune image</span>')+
+  '</div><label>'+esc(title)+'</label><small>'+esc(subtitle)+'</small>'+
+  (isAsset?'<button type="button" data-attach="'+esc(entry.id)+'">Associer au profil</button>':"")+
+  '</article>';
+}
+
+function open(){
+ requireGM();
+ const counters=status();
+ const state={kind:"machine",search:"",filter:"all",assetFilter:"all",profile:null};
+ const content='<section class="h0dv"><header class="h0dv-banner">'+
+  '<small>HORIZON · ZERO DAWN</small><h2>Bibliothèque visuelle</h2>'+
+  '<p>Gère les portraits, les tokens et les illustrations sans saisir les clés techniques.</p>'+
+  '<div class="h0dv-counters"><span><strong>'+counters.groups+'</strong> profils</span>'+
+  '<span><strong>'+counters.variants+'</strong> variantes</span>'+
+  '<span><strong>'+assets.length+'</strong> images</span></div></header>'+
+  '<div class="h0dv-controls"><label>Catégorie<select data-kind>'+
+  [['machine','Machines'],['creature','Faune'],['faction','Factions'],['equipment','Équipements & pièces']].map(([key,name])=>'<option value="'+key+'">'+name+'</option>').join('')+
+  '</select></label><label class="h0dv-search">Recherche<input type="search" data-search placeholder="Nom du profil…"></label>'+
+  '<label>Filtre<select data-filter><option value="all">Tous</option><option value="illustrated">Avec variantes</option><option value="empty">Sans variantes</option></select></label></div>'+
+  '<div class="h0dv-layout"><aside class="h0dv-side" data-profiles></aside><main class="h0dv-body">'+
+  '<div class="h0dv-section-title"><div><h3 data-profile-name>Choisis un profil</h3><small data-profile-key></small></div>'+
+  '<button class="h0dv-primary" data-edit disabled>Gérer les variantes</button></div>'+
+  '<div class="h0dv-grid" data-variants></div><hr class="h0dv-hr">'+
+  '<div class="h0dv-section-title"><div><h3>Galerie des images</h3><small>Images identifiées et images à classer</small></div>'+
+  '<select data-assets-filter><option value="all">Toutes</option><option value="unassigned">À classer</option><option value="mapped">Identifiées</option></select></div>'+
+  '<p class="h0dv-gallery-note">Sélectionne un profil, puis clique sur « Associer au profil ». Une image ajoutée manuellement ne devient pas approuvée sans ta validation.</p>'+
+  '<div class="h0dv-grid" data-assets></div><p class="h0dv-status" data-feedback role="status"></p>'+
+  '</main></div></section>';
+ return foundry.applications.api.DialogV2.wait({
+   window:{title:"H0D Visuels — Bibliothèque",resizable:true},
+   content,buttons:[{action:"close",label:"Fermer"}],rejectClose:false,
+   render:(_event,dialog)=>{
+      const root=dialog.element?.querySelector(".h0dv");
+      if(!root||root.dataset.bound)return;
+      root.dataset.bound="1";
+      const $=selector=>root.querySelector(selector);
+      function visibleProfiles(){
+        return providerKeys().filter(p=>p.kind===state.kind).filter(p=>{
+          const count=getChoices(p.kind,p.key).length;
+          const q=(p.label+" "+p.key).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+          const search=state.search.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+          return q.includes(search)&&(state.filter==="all"||
+            (state.filter==="illustrated"&&count>0)||(state.filter==="empty"&&count===0));
+        });
+      }
+      function redraw(){
+        const profiles=visibleProfiles();
+        if(!profiles.some(p=>p.key===state.profile))state.profile=profiles[0]?.key||null;
+        $("[data-profiles]").innerHTML=profiles.length?profiles.map(p=>
+          '<button type="button" class="h0dv-target '+(p.key===state.profile?"active":"")+'" data-profile="'+esc(p.key)+'">'+
+          '<span>'+esc(p.label)+'<small>'+esc(p.key)+'</small></span><b>'+ (getChoices(p.kind,p.key).length||"—")+'</b></button>'
+        ).join(""):'<p class="h0dv-muted">Aucun profil correspondant.</p>';
+        const selected=profiles.find(p=>p.key===state.profile);
+        $("[data-profile-name]").textContent=selected?.label||"Aucun profil sélectionné";
+        $("[data-profile-key]").textContent=selected?.key||"";
+        $("[data-edit]").disabled=!selected;
+        const list=selected?getChoices(state.kind,state.profile):[];
+        $("[data-variants]").innerHTML=list.length?list.map(v=>visualGalleryCard(v)).join(""):'<p class="h0dv-muted">Aucune variante associée.</p>';
+        const category=state.kind==="equipment"?"component":state.kind;
+        const gallery=assets.filter(x=>x.category===category&&
+          (state.assetFilter==="all"||x.status===state.assetFilter));
+        $("[data-assets]").innerHTML=gallery.length?gallery.map(a=>visualGalleryCard(a,true)).join(""):'<p class="h0dv-muted">Aucune image disponible dans cette catégorie.</p>';
+      }
+      $("[data-kind]").addEventListener("change",e=>{state.kind=e.target.value;state.profile=null;redraw();});
+      $("[data-search]").addEventListener("input",e=>{state.search=e.target.value;redraw();});
+      $("[data-filter]").addEventListener("change",e=>{state.filter=e.target.value;redraw();});
+      $("[data-assets-filter]").addEventListener("change",e=>{state.assetFilter=e.target.value;redraw();});
+      $("[data-profiles]").addEventListener("click",e=>{
+        const button=e.target.closest("[data-profile]");
+        if(button){state.profile=button.dataset.profile;redraw();}
       });
-    }
-  });
+      $("[data-edit]").addEventListener("click",async()=>{
+        if(!state.profile)return;
+        try{await manageVariants(state.kind,state.profile);redraw();}
+        catch(err){$("[data-feedback]").textContent=String(err?.message||err);}
+      });
+      $("[data-assets]").addEventListener("click",async e=>{
+        const button=e.target.closest("[data-attach]");
+        if(!button)return;
+        const item=assets.find(a=>a.id===button.dataset.attach);
+        const feedback=$("[data-feedback]");
+        if(!item||!state.profile){feedback.textContent="Sélectionne un profil avant d'associer une image.";return;}
+        const current=getChoices(state.kind,state.profile);
+        if(current.some(v=>v.portrait===item.src||v.token===item.src)){
+          feedback.textContent="Cette image est déjà associée au profil.";return;
+        }
+        const base=item.id.replace(/[^a-zA-Z0-9_.-]/g,"-").slice(0,90);
+        let id=base,i=2;
+        while(current.some(v=>v.id===id))id=base.slice(0,85)+"-"+i++;
+        try{
+          await addVariant(state.kind,state.profile,{id,label:item.label,portrait:item.src,token:"",presentation:"non_renseigne",approved:false});
+          feedback.textContent="Image associée — à approuver dans « Gérer les variantes ».";
+          redraw();
+        }catch(err){feedback.textContent=String(err?.message||err);}
+      });
+      redraw();
+   }
+ });
 }
 const api=Object.freeze({
   getChoices,pickForBuilder,visualUrl,manageVariants,openPicker,open,
-  saveChoices,addVariant,getStatus:status
+  saveChoices,addVariant,getAssets:()=>assets.map(a=>({...a})),getProfiles:providerKeys,getStatus:status
 });
 Hooks.once("init",()=>{
   game.settings.register(MODULE_ID,"registry",{
@@ -301,9 +388,14 @@ Hooks.once("ready",async()=>{
       raw[id]=entry.variants;
     }
     bundled=mergeRegistry(raw,{});
+    const responseAssets=await fetch(ASSETS_PATH,{cache:"no-store"});
+    if(!responseAssets.ok)throw new Error("Inventaire des images introuvable : HTTP "+responseAssets.status);
+    const gallery=await responseAssets.json();
+    if(gallery.format!=="H0D_VISUAL_ASSETS"||!Array.isArray(gallery.assets))throw new Error("Format de galerie invalide.");
+    assets=gallery.assets.filter(a=>a&&typeof a.id==="string"&&typeof a.src==="string");
   }catch(err){
     console.warn("H0D Visuels | registre embarqué indisponible, entrées MJ conservées",err);
   }
   initialized=true;
-  console.info("H0D Visuels | v0.1.0 prêt ; "+status().variants+" variante(s).");
+  console.info("H0D Visuels | v0.2.0 prêt ; "+status().variants+" variante(s).");
 });
