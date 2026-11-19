@@ -34,3 +34,16 @@ test("une image non attribuée automatiquement reste visible dans la galerie",()
  assert.equal(original.status,"unassigned");
  assert.deepEqual(original.suggestedKeys,[]);
 });
+
+test("le loup.webp est rattaché uniquement au loup-solitaire, sans token présumé",()=>{
+  const a=index.assets.find(a=>a.src==="assets/faune/loup.webp");
+  assert.ok(a);
+  assert.equal(a.status,"mapped");
+  assert.deepEqual(a.suggestedKeys,["loup-solitaire"]);
+  const profile=visuals.entries.find(e=>e.kind==="creature" && e.key==="loup-solitaire");
+  assert.ok(profile);
+  assert.equal(profile.variants.length,1);
+  assert.equal(profile.variants[0].portrait,a.src);
+  assert.equal(profile.variants[0].token,"");
+  assert.equal(profile.variants[0].approved,true);
+});
