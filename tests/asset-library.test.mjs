@@ -11,8 +11,8 @@ test("inventaire des archives et couverture des références",()=>{
  assert.equal(index.assets.filter(a=>a.category==="machine").length,29);
  assert.equal(index.assets.filter(a=>a.category==="creature").length,13);
  assert.equal(index.assets.filter(a=>a.category==="component").length,12);
- assert.equal(index.assets.filter(a=>a.status==="unassigned").length,26);
- assert.equal(visuals.entries.length,28);
+ assert.equal(index.assets.filter(a=>a.status==="unassigned").length,25);
+ assert.equal(visuals.entries.length,29);
 });
 test("les illustrations rattachées à des profils utilisent exclusivement des chemins présents dans l'index",()=>{
  const src=new Set(index.assets.map(a=>a.src));
