@@ -27,7 +27,7 @@ jobs:
           assets = json.loads(pathlib.Path('data/assets-index.json').read_text())['assets']
           missing = [v['src'] for v in assets if not pathlib.Path(v['src']).is_file()]
           if len(assets)!=54 or missing:
-              sys.exit(f"52+ images manquantes : {len(missing)} absent(s) / {len(assets)} déclaré(s). Publication bloquée.")
+              sys.exit(f"54 images attendues : {len(missing)} absent(s) / {len(assets)} déclaré(s). Publication bloquée.")
           print("Images présentes :",len(assets))
           PY
       - name: Build Foundry package
