@@ -485,6 +485,14 @@
           "token": "",
           "presentation": "non_renseigne",
           "approved": true
+        },
+        {
+          "id": "assets-faune-rat",
+          "label": "Rat standard — Petit nuisible",
+          "portrait": "assets/faune/rat.webp",
+          "token": "",
+          "presentation": "non_renseigne",
+          "approved": true
         }
       ]
     }
