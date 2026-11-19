@@ -401,6 +401,20 @@
           "approved": true
         }
       ]
+    },
+    {
+      "kind": "creature",
+      "key": "loup-solitaire",
+      "variants": [
+        {
+          "id": "assets-faune-loup",
+          "label": "Loup solitaire",
+          "portrait": "assets/faune/loup.webp",
+          "token": "",
+          "presentation": "non_renseigne",
+          "approved": true
+        }
+      ]
     }
   ]
 }
