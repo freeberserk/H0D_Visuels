@@ -416,8 +416,10 @@
       "label": "rat",
       "src": "assets/faune/rat.webp",
       "sourceArchive": "faune locale(2).zip",
-      "suggestedKeys": [],
-      "status": "unassigned"
+      "suggestedKeys": [
+        "petit-nuisible"
+      ],
+      "status": "mapped"
     },
     {
       "id": "creature-reindeer",
