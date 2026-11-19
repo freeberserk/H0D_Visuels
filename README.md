@@ -2,7 +2,19 @@
 
 **Bibliothèque visuelle commune pour les modules Foundry VTT de la campagne JDR Horizon Zero Dawn.**
 
-> **Statut : en développement.** Ce dépôt est destiné à accueillir le module `h0d-visuels`. Le README décrit la cible fonctionnelle et les interfaces attendues ; il ne signifie pas que le module est déjà opérationnel ou publié.
+> **Version installable : 0.1.0.** La version 0.2.0 avec galerie et 54 images est préparée sur une branche de travail. Elle ne doit pas être fusionnée tant que tous les fichiers WebP n'ont pas été importés et validés.
+
+## Version 0.2.0 — Galerie et images (préparation sur branche)
+
+- Nouvelle interface : catégories Machines / Faune / Factions / Équipement, recherche des profils par nom, affichage des clés techniques secondaires, filtrage, vignettes et bouton d'association directe.
+- Index de 54 images issues de `Machine.zip` et `faune locale(2).zip` : **29 machines, 13 faune, 12 composants**.
+- **28 profils documentés** possèdent une association initiale ; les images non identifiées restent `unassigned` et ne sont jamais attribuées automatiquement.
+- Les images de Chien sauvage incluent portrait et token séparés.
+- Les chemins `assets/` du catalogue sont relatifs au module `h0d-visuels`, mais les liens `modules/…` et HTTPS de The Forge restent utilisables.
+- Les variantes éventuellement enregistrées par le MJ dans un monde restent prioritaires sur celles du registre embarqué : aucune migration automatique.
+- **Blocage de sécurité de la CI** : la publication est impossible tant que les 54 fichiers WebP référencés ne sont pas physiquement présents dans `assets/`.
+- Il faut transférer uniquement le dossier `assets/` de `H0D_Visuels_54_images_uniquement.zip` sur la branche `feature/gallery-020-images-pending`, puis faire un push. Ne pas fusionner avant réussite des tests.
+- Aucun droit de redistribution des illustrations provenant de sources tierces n'a été vérifié. Le dépôt est public ; évaluer les droits avant d'y ajouter des fichiers.
 
 ## Objectif
 
